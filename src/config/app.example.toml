@@ -1,0 +1,15 @@
+#相机配置
+schema_version = 1
+
+[server]
+host = "0.0.0.0"
+port = 3077
+#对应cpu的核心数
+threads = 2
+
+[logging]
+# 日志最低输出级别，常用值：trace、debug、info、warn、error、critical、off。
+level = "info"
+# 日志按大小轮转，避免长期运行占满磁盘。
+max_file_size_mb = 100
+max_files = 20

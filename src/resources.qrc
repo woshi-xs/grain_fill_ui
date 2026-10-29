@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/icons/close.svg</file>
+        <file>res/icons/maximize.svg</file>
+        <file>res/icons/min.svg</file>
+        <file>res/icons/restore.svg</file>
+        <file>res/icons/alg-image.svg</file>
+        <file>res/icons/photo-down.svg</file>
+        <file>res/icons/photo-up.svg</file>
+        <file>res/logo/logo.png</file>
+        <file>res/logo/app.png</file>
+    </qresource>
+</RCC>
