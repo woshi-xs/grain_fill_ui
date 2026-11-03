@@ -5,6 +5,10 @@ project(GrainFilling
      DESCRIPTION "grain filling"
     LANGUAGES CXX)
 
+# C++ 语言标准
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
 find_package(OpenCV REQUIRED)
 find_package(spdlog REQUIRED)
