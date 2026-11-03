@@ -356,7 +356,7 @@ max_files = 20            # 日志文件保留数量
 
 ## 作者与致谢
 
-- **作者**：黄晓松（woshi-xs）
+- **作者**：黄小松（woshi-xs）
 - **邮箱**：[woshixs123@gmail.com](mailto:woshixs123@gmail.com)
 - **GitHub**：[https://github.com/woshi-xs](https://github.com/woshi-xs)
 - **致谢**：[HWindow](https://github.com/woshi-xs/HWindow) —— 轻量无边框窗口组件（MIT）
