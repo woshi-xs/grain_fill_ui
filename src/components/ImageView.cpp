@@ -28,6 +28,26 @@ imageview::imageview(QWidget *parent)
     //左键不拖动图片。平移只在中键按下时处理
     setDragMode(QGraphicsView::NoDrag);
 }
+
+void imageview::changeEvent(QEvent *event)
+{
+    QGraphicsView::changeEvent(event);
+    if (event->type() == QEvent::PaletteChange || event->type() == QEvent::ApplicationPaletteChange)
+        syncBaseToWindow();
+}
+
+void imageview::syncBaseToWindow()
+{
+    const QPalette current = palette();
+    const QColor window = current.color(QPalette::Active, QPalette::Window);
+    if (current.color(QPalette::Active, QPalette::Base) == window)
+        return;
+
+    QPalette pal = current;
+    pal.setColor(QPalette::Base, window);
+    setPalette(pal);
+}
+
 // 设置图像
 void imageview::setImage(const QImage &img)
 {

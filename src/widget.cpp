@@ -25,7 +25,6 @@ Widget::Widget(QWidget *parent)
     logger::easyLog().info("简易日志初始化成功");
 
     initTopTitleBarButton();
-    initLeftTitleBarButton();
     DetectParamForm::initOptions(ui);
     DetectParamForm::write(ui, m_session.param);
     m_session.param = DetectParamForm::read(ui);
@@ -119,7 +118,6 @@ void Widget::reportFailure(const QString &status, const char *log)
 
 void Widget::initTopTitleBarButton()
 {
-    ui->topTitle->setBackgroundColor(QColor(250,250,250));
     ui->max->setRoundRadius(0);
     ui->min->setRoundRadius(0);
     ui->close->setRoundRadius(0);
@@ -137,11 +135,6 @@ void Widget::initTopTitleBarButton()
     ui->max->setIconSize(QSize(20, 20));
     ui->min->setIconSize(QSize(20, 20));
     ui->close->setIconSize(QSize(20, 20));
-}
-
-void Widget::initLeftTitleBarButton()
-{
-    ui->leftWidget->setBackgroundColor(QColor(250,250,250));
 }
 
 void Widget::on_min_clicked()

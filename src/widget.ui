@@ -55,9 +55,6 @@
        <height>16777215</height>
       </size>
      </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
        <number>0</number>
@@ -438,7 +435,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(212, 212, 212);</string>
+      <string notr="true">color: palette(mid);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::Shape::VLine</enum>
@@ -638,7 +635,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(212, 212, 212);</string>
+         <string notr="true">color: palette(mid);</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::Shape::HLine</enum>

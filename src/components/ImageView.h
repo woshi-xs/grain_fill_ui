@@ -57,6 +57,7 @@ public:
 
 protected:
 
+    void changeEvent(QEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;      //以鼠标所在位置为中心缩放
     void mousePressEvent(QMouseEvent *event) override; //中键平移，左键交给视图拖拽
     void mouseMoveEvent(QMouseEvent *event) override;  //中键按住时平移
@@ -78,6 +79,9 @@ private:
     double m_zoomFactor = 1.0;  // 当前缩放系数
     double m_minZoom = 0.01;     // 最小为自适应比例的 0.01 倍
     double m_maxZoom = 50.0;    // 最大为自适应比例的 50 倍
+
+    // Windows 11 样式会把 Base 定成当时的 Window 色。主题变化时按新的 Window 色重写
+    void syncBaseToWindow();
 };
 
 #endif // IMAGEVIEW_H

@@ -54,8 +54,6 @@ private:
 
     void initTopTitleBarButton();
 
-    void initLeftTitleBarButton();
-
     //把算法参数和左下角控件恢复为 DetectParam 的默认值
     void resetDetectParam();
 

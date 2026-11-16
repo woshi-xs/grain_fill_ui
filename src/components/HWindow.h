@@ -11,11 +11,6 @@
  * Repository: https://github.com/woshi-xs/HWindow
  */
 
-/*
- * 强烈建议设置背景色时不要样式表和函数混用
- * 推荐使用函数接口设置背景色
- */
-
 #ifndef HWINDOW_HXS
 #define HWINDOW_HXS
 
@@ -46,11 +41,6 @@ class HTitleWidget : public QWidget
     Q_OBJECT
 public:
     explicit HTitleWidget(QWidget *parent = nullptr);
-    ///
-    /// \brief setBackgroundColor   指定背景颜色
-    /// \param BackgroundColor      背景颜色
-    ///
-    void setBackgroundColor(QColor BackgroundColor);
 
 protected:
     void mouseMoveEvent(QMouseEvent *event) override;

@@ -93,7 +93,7 @@ bool HWidget::nativeEvent(const QByteArray &eventType, void *message, qintptr *r
 
         // 接管鼠标行为
     case WM_NCHITTEST: {
-        const int border = 8; // 边缘缩放感应范围
+        const int border = 8 * this->devicePixelRatioF(); // 边缘缩放感应范围
         RECT winRect;
         GetWindowRect(hwnd, &winRect);
 
@@ -132,14 +132,8 @@ bool HWidget::nativeEvent(const QByteArray &eventType, void *message, qintptr *r
 HTitleWidget::HTitleWidget(QWidget *parent)
     : QWidget(parent)
 {
-    setAutoFillBackground(true);//启用自动背景绘制,不开启设置不了背景色
-}
-
-void HTitleWidget::setBackgroundColor(QColor BackgroundColor)
-{
-    QPalette pal = palette();
-    pal.setColor(QPalette::Window,BackgroundColor);
-    setPalette(pal);
+    // 按调色板 Window 角色铺底，不写入具体颜色，以便跟随系统深浅色
+    setAutoFillBackground(true);
 }
 
 void HTitleWidget::mouseMoveEvent(QMouseEvent *event)
