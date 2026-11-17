@@ -56,7 +56,7 @@ GrainFilling 面向晶粒（颗粒）显微图像的**检测与自动补全**场
 - **交互式编辑**：点选 / 多选轮廓，支持移除（软删除）、复制轮廓、在两颗相邻晶粒间插入补粒、局部修改补粒个数、拖拽移动轮廓；
 - **二值图闭环**：编辑完成后可按当前轮廓一键重新生成二值图，再驱动算法重跑，保证人工修正不丢失；
 - **专业可视化**：绿 / 紫 / 蓝 / 红 / 黄多色区分晶粒状态与链走向，支持 0.01×–50× 缩放与平移；
-- **工程化基础**：spdlog 分级轮转日志、TOML 配置文件、CMake Presets + vcpkg 依赖管理。
+- **工程化基础**：spdlog 分级轮转日志、TOML 配置文件、vcpkg 依赖管理。
 
 ---
 
@@ -199,7 +199,6 @@ flowchart LR
 ```
 grain_fill_ui/
 ├── CMakeLists.txt              # 构建脚本（Qt6 + OpenCV + spdlog + toml++）
-├── CMake Presets.json          # VS2022 x64 Debug/Release 预设（内置 vcpkg 工具链）
 ├── vcpkg.json                  # vcpkg manifest（依赖清单）
 ├── resources.rc / app.ico      # Windows 资源与图标
 ├── images/                     # 示例输入图像
@@ -253,8 +252,6 @@ grain_fill_ui/
 
 ## 构建与运行
 
-### 方式一：使用 CMake Presets（推荐）
-
 ```powershell
 # 1. 克隆仓库
 git clone https://github.com/<your-name>/grain_fill_ui.git
@@ -264,18 +261,11 @@ cd grain_fill_ui
 vcpkg install
 
 # 3. 配置并构建 Release
-cmake --preset release
-cmake --build build-release --config Release
-
-# 4. 运行
-.\build-release\Release\GrainFilling.exe
-```
-
-### 方式二：手动配置
-
-```powershell
 cmake -B build -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT\scripts\buildsystems\vcpkg.cmake"
 cmake --build build --config Release
+
+# 4. 运行
+.\build\Release\GrainFilling.exe
 ```
 
 > 说明：CMake 已集成 `qt_generate_deploy_app_script`，可一键生成部署脚本（`windeployqt`），方便将程序连同 Qt 运行库一起分发。
